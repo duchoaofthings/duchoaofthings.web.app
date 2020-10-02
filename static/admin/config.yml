@@ -42,9 +42,9 @@ collections: # A list of collections the CMS should be able to edit
           label: "Featured",
           name: "featured",
           widget: "boolean",
-          required: false,
+          default: false,
         }
-      - { label: "Draft", name: "draft", widget: "boolean", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - label: "Image"
         name: "image"
         widget: "object"
@@ -65,7 +65,7 @@ collections: # A list of collections the CMS should be able to edit
               label: "Preview Only",
               name: "preview_only",
               widget: "boolean",
-              required: false,
+              default: false,
             }
         required: false
       - { label: "Projects", name: "projects", widget: "list", required: false }
