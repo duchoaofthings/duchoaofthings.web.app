@@ -5,11 +5,11 @@ backend:
 media_folder: "static/img/uploads" # Folder where user uploaded files should go
 public_folder: "/img/uploads"
 
-site_url: https://duchoaofthings.web.app
-display_url: https://duchoaofthings.web.app
-logo_url: https://duchoaofthings.web.app/img/logo.png
+site_url: https://duchoaofthings.netlify.app
+display_url: https://duchoaofthings.netlify.app
+logo_url: https://duchoaofthings.netlify.app/img/logo.png
 #locale: "vi"
-slug: "{{year}}-{{month}}-{{day}}-{{title}}"
+slug:
   encoding: "ascii"
   clean_accents: true
   sanitize_replacement: "-"
@@ -21,23 +21,60 @@ collections: # A list of collections the CMS should be able to edit
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "SubTitle", name: "subtitle", widget: "string", require: false}
-      - { label: "Summary", name: "summary", widget: "string", require: false }
+      - {
+          label: "SubTitle",
+          name: "subtitle",
+          widget: "string",
+          required: false,
+        }
+      - { label: "Summary", name: "summary", widget: "string", required: false }
       - { label: "Authors", name: "authors", widget: "list" }
-      - { label: "Tags", name: "tags", widget: "list", require: false }
-      - { label: "Categories", name: "categories", widget: "list", require: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - {
+          label: "Categories",
+          name: "categories",
+          widget: "list",
+          required: false,
+        }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "LastMod", name: "lastmod", widget: "datetime" }
-      - { label: "Featured", name: "featured", widget: "boolean" }
-      - { label: "Draft", name: "draft", widget: "boolean" }
+      - {
+          label: "Featured",
+          name: "featured",
+          widget: "boolean",
+          required: false,
+        }
+      - { label: "Draft", name: "draft", widget: "boolean", required: false }
       - label: "Image"
         name: "image"
         widget: "object"
         fields:
-          - { label: "Caption", name: "caption", widget: "string" }
-          - { label: "Focal Point", name: "focal_point", widget: "string" }
-          - { label: "Preview Only", name: "preview_only", widget: "boolean" }
-      - { label: "Projects", name: "projects", widget: "list", require: false }
+          - {
+              label: "Caption",
+              name: "caption",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Focal Point",
+              name: "focal_point",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Preview Only",
+              name: "preview_only",
+              widget: "boolean",
+              required: false,
+            }
+        required: false
+      - { label: "Projects", name: "projects", widget: "list", required: false }
+      - {
+          label: "Body",
+          name: "body",
+          widget: "markdown",
+          hint: "Main content goes here.",
+        }
 
   - name: "pages"
     label: "Pages"
