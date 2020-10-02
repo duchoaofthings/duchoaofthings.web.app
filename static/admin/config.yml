@@ -2,11 +2,11 @@ backend:
   name: github
   repo: duchoaofthings/duchoaofthings.web.app
 
-media_folder: "static/img/uploads" # Folder where user uploaded files should go
-public_folder: "/img/uploads"
+media_folder: "static/img/uploads/" # Folder where user uploaded files should go
+public_folder: "/img/uploads/"
 
-site_url: https://duchoaofthings.netlify.app
-display_url: https://duchoaofthings.netlify.app
+site_url: https://duchoaofthings.netlify.app/
+display_url: https://duchoaofthings.netlify.app/
 logo_url: https://duchoaofthings.netlify.app/img/logo.png
 #locale: "vi"
 slug:
