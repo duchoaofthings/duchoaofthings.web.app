@@ -8,12 +8,15 @@ jobs:
     container: monachus/hugo:latest
     steps:
       - run: hugo --cleanDestinationDir --gc
+        with:
+          name: public
+          path: public
   deploy:
     runs-on: ubuntu-latest
     container: devillex/docker-firebase:slim
     steps:
       - run: firebase deploy --token "$FIREBASE_TOKEN"
         with:
-          path: public
+          name: public
         env:
           FIREBASE_TOKEN: ${{ secrets.firebase_token }}
