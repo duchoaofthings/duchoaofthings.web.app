@@ -4,18 +4,16 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    container: monachus/hugo:latest
     steps:
-      - run: hugo --cleanDestinationDir --gc
+      - uses: docker://monachus/hugo:latest
+        run: hugo --cleanDestinationDir --gc
         with:
           name: public
           path: public
   deploy:
-    runs-on: ubuntu-latest
-    container: devillex/docker-firebase:slim
     steps:
-      - run: firebase deploy --token "$FIREBASE_TOKEN"
+      - uses: devillex/docker-firebase:slim
+        run: firebase deploy --token "$FIREBASE_TOKEN"
         with:
           name: public
         env:
